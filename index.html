@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Risk Assessment - Financial Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">💼</span>
+                <span class="logo-text">FinAssess</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#assessment" class="nav-link">Assessment</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Smart Loan Risk Assessment</h1>
+            <p class="hero-subtitle">Get an instant evaluation of your loan eligibility with our advanced assessment tool</p>
+            <button class="cta-button" onclick="scrollToAssessment()">Start Assessment</button>
+        </div>
+        <div class="hero-background">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Get your risk assessment in seconds with our advanced algorithm</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your data is encrypted and protected with industry-standard security</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Accurate Analysis</h3>
+                <p>Based on multiple financial factors for comprehensive evaluation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>Access from any device, anywhere, anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Form Section -->
+    <section class="assessment-section" id="assessment">
+        <div class="assessment-container">
+            <div class="form-wrapper">
+                <h2 class="form-title">Loan Assessment Form</h2>
+                <p class="form-subtitle">Fill in your financial details for a comprehensive risk evaluation</p>
+
+                <form id="assessmentForm" class="assessment-form">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            class="form-input" 
+                            placeholder="John Doe"
+                            required
+                        >
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Monthly Income -->
+                    <div class="form-group">
+                        <label for="monthlyIncome" class="form-label">Monthly Income ($)</label>
+                        <input 
+                            type="number" 
+                            id="monthlyIncome" 
+                            class="form-input" 
+                            placeholder="5000"
+                            min="0"
+                            required
+                        >
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Loan Amount -->
+                    <div class="form-group">
+                        <label for="loanAmount" class="form-label">Requested Loan Amount ($)</label>
+                        <input 
+                            type="number" 
+                            id="loanAmount" 
+                            class="form-input" 
+                            placeholder="50000"
+                            min="0"
+                            required
+                        >
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Employment Status -->
+                    <div class="form-group">
+                        <label for="employmentStatus" class="form-label">Employment Status</label>
+                        <select id="employmentStatus" class="form-input" required>
+                            <option value="">Select Employment Status</option>
+                            <option value="employed">Employed (Full-time)</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="retired">Retired</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Credit History Score -->
+                    <div class="form-group">
+                        <label for="creditScore" class="form-label">Credit History Score (300-850)</label>
+                        <input 
+                            type="number" 
+                            id="creditScore" 
+                            class="form-input" 
+                            placeholder="750"
+                            min="300"
+                            max="850"
+                            required
+                        >
+                        <span class="error-message"></span>
+                        <div class="credit-score-guide">
+                            <span class="score-range poor">Poor (300-579)</span>
+                            <span class="score-range fair">Fair (580-669)</span>
+                            <span class="score-range good">Good (670-739)</span>
+                            <span class="score-range excellent">Excellent (740+)</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-button">Calculate Risk Assessment</button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-wrapper" id="resultsWrapper" style="display: none;">
+                <h2 class="results-title">Your Assessment Result</h2>
+                
+                <div class="risk-card" id="riskCard">
+                    <div class="risk-indicator" id="riskIndicator"></div>
+                    <h3 class="risk-level" id="riskLevel"></h3>
+                    <p class="risk-description" id="riskDescription"></p>
+                </div>
+
+                <div class="detailed-results">
+                    <div class="result-item">
+                        <span class="result-label">Debt-to-Income Ratio:</span>
+                        <span class="result-value" id="debtToIncomeResult"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Credit Score Category:</span>
+                        <span class="result-value" id="creditScoreCategoryResult"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Employment Stability:</span>
+                        <span class="result-value" id="employmentStabilityResult"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Recommendation:</span>
+                        <span class="result-value" id="recommendationResult"></span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary-button" onclick="resetForm()">Assess Again</button>
+                    <button class="primary-button" onclick="downloadResult()">Download Result</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About FinAssess</h4>
+                <p>Providing intelligent loan risk assessment solutions for financial institutions worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#assessment">Assessment</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@finassess.com</p>
+                <p>Phone: 1-800-FIN-ASSESS</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FinAssess. All rights reserved. | Secure Financial Solutions</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
