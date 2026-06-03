@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Loan Customers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="dashboard-cards">
+    <div class="card total-customers">
+        <h3>Total Customers</h3>
+        <p id="totalCustomers">0</p>
+    </div>
+    <div class="card safe">
+        <h3>Safe</h3>
+        <p id="safeCount">0</p>
+    </div>
+    <div class="card warning">
+        <h3>Warning</h3>
+        <p id="warningCount">0</p>
+    </div>
+    <div class="card critical">
+        <h3>Critical</h3>
+        <p id="criticalCount">0</p>
+    </div>
+</section>
+
+<section id="adminDashboard" class="dashboard-section">
+    <div class="dashboard-header">
+        <h2>Customer Management Dashboard</h2>
+        <button id="addCustomerBtn" class="primary-button">Add Customer</button>
+    </div>
+
+    <table id="customerTable">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>ID Number</th>
+                <th>Credit Score</th>
+                <th>Date Joined</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Customer rows will populate here -->
+        </tbody>
+    </table>
+</section>
+
+<!-- Modal for Add Customer -->
+<div id="customerModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Add New Customer</h3>
+        <form id="addCustomerForm">
+            <label>Full Name</label>
+            <input type="text" id="newFullName" placeholder="John Doe" required>
+            <label>Credit Score</label>
+            <input type="number" id="newCreditScore" placeholder="750" min="300" max="850" required>
+            <div class="modal-actions">
+                <button type="submit" class="primary-button">Create Customer</button>
+                <button type="button" id="cancelBtn" class="secondary-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

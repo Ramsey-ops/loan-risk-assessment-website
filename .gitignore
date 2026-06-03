@@ -1,0 +1,13 @@
+node_modules/
+node-v*-win-x64/
+
+.env
+.env.*
+
+npm-debug.log*
+*.log
+
+__pycache__/
+*.pyc
+
+.DS_Store

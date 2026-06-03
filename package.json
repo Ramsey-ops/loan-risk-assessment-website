@@ -1,0 +1,25 @@
+{
+  "name": "loan-risk-assessment-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive web application for assessing loan risk based on financial criteria. Built with HTML, CSS, and vanilla JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --check server.js && node --check script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramsey-ops/loan-risk-assessment-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ramsey-ops/loan-risk-assessment-website/issues"
+  },
+  "homepage": "https://github.com/Ramsey-ops/loan-risk-assessment-website#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

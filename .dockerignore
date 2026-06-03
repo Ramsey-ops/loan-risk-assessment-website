@@ -1,0 +1,11 @@
+.git
+.gitignore
+node_modules
+node-v26.3.0-win-x64
+npm-debug.log
+.env
+.env.*
+__pycache__
+*.pyc
+.DS_Store
+*.log
